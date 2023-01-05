@@ -32,7 +32,11 @@ const Image = () => (
 
 const Title = () => <h1>Where the Forest Meets the Stars</h1>;
 
-const Author = () => <h3>Glendy Vanderah</h3>;
+const Author = () => (
+    <h4 style={{ color: "#617d98", fontSize: "0.75rem", marginTop: "0.25rem" }}>
+        Glendy Vanderah
+    </h4>
+);
 
 // const Greeting = () => {
 //     return React.createElement(
