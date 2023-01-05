@@ -1,5 +1,5 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import { createRoot } from "react-dom/client";
 import "./index.css";
 const books = [
     {
@@ -20,6 +20,12 @@ const books = [
         title: "American Dirt (Oprah's Book Club): A Novel",
         author: "Jeanine Cummins",
     },
+    {
+        id: 4,
+        img: "https://m.media-amazon.com/images/I/81T2u+-6MaL._AC_UL320_.jpg",
+        title: "American Dirt (Oprah's Book Club): A Novel",
+        author: "Jeanine Cummins",
+    },
 ];
 function BookList() {
     return (
@@ -33,17 +39,52 @@ function BookList() {
     );
 }
 
-const Book = ({ img, title, author } /*props*/) => {
-    // console.log(props);
-    // const { img, title, author } = props;
-    return (
-        <article className="book">
-            <img src={img} alt="" />
+const Book = ({ img, title, author }) => {
+    //attribute, eventHandler
+    //onClick, onMouseOver
 
-            <h1>{title}</h1>
+    const clickHandler = (e) => {
+        // check out the event object
+        console.log(e);
+        console.log(e.target);
+        alert("hello world");
+    };
+
+    const complexExample = (author) => {
+        console.log(author);
+    };
+
+    return (
+        <article
+            className="book"
+            onMouseOver={() => {
+                console.log(title);
+            }}
+        >
+            <img src={img} alt="" />
+            <h1
+                onClick={() => {
+                    console.log(title);
+                }}
+            >
+                {title}
+            </h1>
             <h4>{author}</h4>
+            <button type="button" onClick={clickHandler}>
+                reference example
+            </button>
+            <button
+                type="button"
+                onClick={() => {
+                    complexExample(author);
+                }} //to avoid auto invocation, use ()=>{} to wrap a function with argument
+            >
+                more complex example
+            </button>
         </article>
     );
 };
 
-ReactDOM.render(<BookList />, document.getElementById("root"));
+const container = document.getElementById("root");
+const root = createRoot(container);
+root.render(<BookList />);

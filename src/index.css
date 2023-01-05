@@ -21,7 +21,7 @@ body {
     gap: 2rem;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1000px) {
     .booklist {
         grid-template-columns: repeat(3, 1fr);
     }
@@ -31,6 +31,13 @@ body {
     background: #fff;
     border-radius: 1rem;
     padding: 1rem 2rem;
+}
+
+.book img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    /* width: 50%; */
 }
 
 .book h1 {
