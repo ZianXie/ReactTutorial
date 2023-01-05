@@ -1,0 +1,6 @@
+{
+    "prettier.tabWidth": 4,
+    "emmet.includeLanguages": {
+        "javascript": "javascriptreact"
+    }
+}
